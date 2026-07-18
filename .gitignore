@@ -9,5 +9,3 @@ venv/
 .pytest_cache/
 models/*.pkl
 models/*.joblib
-reports/figures/*.png
-!reports/figures/.gitkeep
