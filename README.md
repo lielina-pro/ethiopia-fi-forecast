@@ -10,7 +10,7 @@ Forecasts two Global Findex-defined dimensions for 2025–2027:
 ## Project status
 
 - [x] Task 1 — Data Exploration & Enrichment
-- [ ] Task 2 — Exploratory Data Analysis
+- [x] Task 2 — Exploratory Data Analysis
 - [ ] Task 3 — Event Impact Modeling
 - [ ] Task 4 — Forecasting Access and Usage
 - [ ] Task 5 — Dashboard Development
