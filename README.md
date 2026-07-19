@@ -41,8 +41,17 @@ impact_link, or target) shares the same columns; `record_type` tells you how to 
 See `data/raw/SCHEMA_README.md` for the full schema design rationale and `data/raw/reference_codes.csv`
 for valid values of every categorical field.
 
-Enrichment additions (9 new observations, 1 new event, 2 new impact_links, all sourced) are documented
-in `data/data_enrichment_log.md`, including data-quality conflicts found during enrichment.
+**Task 1 deliverables, explicitly:**
+- `data/raw/ethiopia_fi_unified_data_original_starter.csv` — the untouched 57-record starter dataset (kept for before/after comparison).
+- `data/processed/enriched_dataset.csv` — the final 69-record enriched dataset (starter + 12 new, sourced records) used by all analysis from Task 2 onward.
+- `data/data_enrichment_log.md` — the full audit trail: every new record's `source_url`, verbatim `original_text`, `confidence`, `collected_by`, `collection_date`, and `notes`, plus the data-quality conflicts found during enrichment.
+
+### Error handling
+
+`src/data_loader.py` validates the dataset on load (missing file, empty file, missing required columns,
+unrecognized `record_type` values, duplicate `record_id`s) and raises a `DataLoadError` with an actionable
+message rather than failing silently or downstream. See `tests/test_data_loader.py` for the covered failure
+modes.
 
 ## Setup
 
