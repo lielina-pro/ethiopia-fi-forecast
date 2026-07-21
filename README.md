@@ -11,9 +11,9 @@ Forecasts two Global Findex-defined dimensions for 2025–2027:
 
 - [x] Task 1 — Data Exploration & Enrichment
 - [x] Task 2 — Exploratory Data Analysis
-- [ ] Task 3 — Event Impact Modeling
-- [ ] Task 4 — Forecasting Access and Usage
-- [ ] Task 5 — Dashboard Development
+- [x] Task 3 — Event Impact Modeling
+- [x] Task 4 — Forecasting Access and Usage
+- [x] Task 5 — Dashboard Development
 
 ## Repository structure
 
@@ -61,11 +61,29 @@ source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-## Running the dashboard (once Task 5 is complete)
+## Running the dashboard
 
 ```bash
+pip install -r requirements.txt
 streamlit run dashboard/app.py
 ```
+
+This opens a browser tab at `http://localhost:8501`. Requires `data/processed/enriched_dataset.csv` and
+`data/processed/forecast_2025_2027.csv` to exist (both are already committed; regenerate them by running
+`notebooks/01`-`04` in order if you ever need to rebuild from scratch).
+
+**Pages:**
+- **Overview** — key metric cards (Access, Usage, Mobile Money Accounts, P2P/ATM Crossover Ratio) and the
+  Access growth-deceleration chart.
+- **Trends** — pick any of the dataset's ~24 indicators, filter by date range, and see cataloged events
+  overlaid on the chart; plus a dedicated P2P-vs-ATM channel comparison.
+- **Forecasts** — 2025-2027 projections for Access and Usage under three scenarios (Pessimistic / Base /
+  Optimistic), with a formal 80% prediction interval band for Access.
+- **Inclusion Projections** — an adjustable target-threshold slider (default 60%, official NFIS-II target
+  70% shown as a fixed reference line), a progress bar, and written answers to the consortium's key
+  questions.
+
+All four pages include a CSV download option in the sidebar (enriched dataset + forecast table).
 
 ## Team
 
